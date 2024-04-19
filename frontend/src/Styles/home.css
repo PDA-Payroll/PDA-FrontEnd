@@ -1,21 +1,28 @@
 /* Home.css */
 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #040720; /* Set background color for the entire Home page */
+}
+
 .Home-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 80vh;
-  background-color: #EBF5EE; 
+  height: 80vh;  /* Updated height to cover the entire viewport height */
+
 }
 
 h1 {
   font-size: 35px;
-  color: #040720; 
+  color: #ffffff; 
   margin-bottom: 20px;
 }
 
 p {
   font-size: 20px;
-  color: #040720; 
+  color: #ffffff; 
 }
