@@ -1,0 +1,84 @@
+/* Login.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #EBF5EE; /* Set background color for the entire Login page */
+  }
+  
+  .Login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+  }
+  
+  .title-container {
+    margin-bottom: 20px;
+  }
+  
+  .title-text {
+    font-size: 35px; 
+    margin: 0; 
+    color: #ffffff;
+    margin-top: -30px;  /* Increased margin to move the "Welcome" text further up */
+    margin-bottom: 20px; /* Spacing below the title */
+  }
+  
+  .bubbled-rectangle {
+    background-color: #040720; 
+    width: 400px;  
+    height: 400px; 
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-left: 25px; 
+    padding-right: 25px;
+  }
+  
+  .bubbled-text {
+    color: #ffffff;
+    font-family: sans-serif;
+    margin-bottom: 10px; /* Spacing between bubbled-text and username-input */
+    align-self: flex-start;
+    left: 10px;
+  }
+  
+  .username-input,
+  .password-input {
+    width: 350px;
+    height: 40px; 
+    background-color: #EBF5EE; 
+    border-radius: 25px; 
+    font-family: sans-serif;
+    padding-left: 20px; /* Left padding to match the position of bubbled-text */
+    margin-bottom: 20px;
+  }
+  
+  .bubbled-text2 {
+    color: #ffffff;
+    font-family: sans-serif;
+    align-self: flex-start;
+    margin-bottom: 10px; /* Spacing between bubbled-text2 and password-input */
+  }
+  
+  .login-button {
+
+    background-color: #EBF5EE;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-family: sans-serif;
+  }
+  
+  .login-button:hover {
+    background-color: #a8f6bf;
+  }

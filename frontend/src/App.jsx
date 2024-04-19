@@ -1,14 +1,15 @@
-import Home from './Pages/home';
+import Login from './Pages/Login';
 import './App.css';
-import './Styles/home.css';
+import './Styles/Login.css';
 
 function App() {
   return (
-    <div className="App">
-      <Home />
+    <div className="Login-container">
+      <Login />
     </div>
   );
 }
 
 export default App;
+
 
