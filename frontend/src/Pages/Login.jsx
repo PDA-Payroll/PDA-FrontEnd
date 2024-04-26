@@ -11,7 +11,7 @@ function Login() {
   };
 
   return (
-    <div className="bg-ebf5ee h-screen flex justify-center items-center">
+  
   
       <div className="bubbled-rectangle">
         <div className="title-container">
@@ -22,8 +22,8 @@ function Login() {
         <div className="bubbled-text2">Password</div>
         <input type="password" className="password-input" placeholder="Enter password" />
         <button className="login-button" onClick={handleLogin}>Log In</button>
-      </div>
-    </div>
+        </div>
+   
   );
 }
 

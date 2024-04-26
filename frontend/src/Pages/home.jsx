@@ -6,7 +6,7 @@ function Home() {
 
   return(
     <div className = "Home-container">
-      <div className="bubbled-rectangle">
+      <div className="bubbled-rectangle1">
         <div className="title-container">
           <h1 className="title-text"> Welcome, Christian! </h1>
         </div>
