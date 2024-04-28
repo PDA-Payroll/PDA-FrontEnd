@@ -1,0 +1,56 @@
+
+  
+  
+  .rectangle-pr {
+    background-color:#EBF5EE; 
+    width: 600px;  
+    height: 400px; 
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-left: 25px; 
+    padding-right: 25px;
+  }
+  .title-punch .text-punch {
+    color: #040720; 
+    margin-top: -120px;
+  }
+  
+  .current-date-time p {
+    color: #040720; 
+  }
+
+  .button-container {
+    margin-top: 20px; 
+  }
+  
+  .deny-button, .approve-button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #040720; 
+    color: #fff; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .approve-button {
+    background-color: #040720; 
+  }
+
+  .deny-button:hover {
+    background-color: #575c59;
+  }
+
+  .approve-button:hover {
+    background-color: #575c59;
+  }
+
+  
+
+
+  
+  
