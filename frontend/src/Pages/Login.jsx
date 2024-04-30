@@ -34,17 +34,15 @@ function Login() {
 			)
 			.then((response) => {
 				//console log to check if server connected or not
-				console.log("Response status:", response.id);
-				console.log("Response data:", response.employeeFirstName);
+				console.log("Response status:", response.status);
+				console.log("Response data:", response.data.employeeInfo);
 
-				if (response.status === 200) {
+				if (response.data.employeeInfo) {
 					setMessage("Login successful!");
-					console.log("Data:", response.data);
+					console.log("Data:", response.data.employeeInfo);
 					navigate("/dashboard");
 				} else {
-					setMessage(
-						response.data.message || "Login failed. Please try again.",
-					);
+					throw new Error("Incorrect Username or Password");
 				}
 			})
 			.catch((error) => {
