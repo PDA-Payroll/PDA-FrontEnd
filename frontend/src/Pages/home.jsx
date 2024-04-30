@@ -20,7 +20,7 @@ function Home() {
       </div>
 
       <div className="bubbled-logout">
-        <h1 className="title-text"> Log Out </h1>
+      <Link to="/Logout" className="title-text"> Log out </Link>
       </div>
 
       <div className="bubbled-lastPunch">
