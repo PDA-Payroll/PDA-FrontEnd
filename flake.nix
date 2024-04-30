@@ -5,52 +5,55 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   };
 
-  outputs = {
-    self,
-    flake-compat,
-    flake-utils,
-    nixpkgs,
-    ...
-  } @ inputs: 
-  
-  flake-utils.lib.eachDefaultSystem (system:
-    let
-      pkgs = inputs.nixpkgs.legacyPackages.${system};
-      src = ./frontend;
-    in {
-      # This is a cache so we don't always have to rebuild
-      packages = rec {
-        node-modules = pkgs.buildNpmPackage {
-          pname = "pdaFrontEnd";
-          version = "0.0.1";
-          npmDeps = pkgs.importNpmLock {
-            npmRoot = src;
-          };
-          src = src;
-          npmConfigHook = pkgs.importNpmLock.npmConfigHook;
-        };
-        entryPoint = pkgs.writeShellScriptBin "startFrontEnd" ''
-          export NODE_PATH=${node-modules}/lib/node_modules/frontend/node_modules
-          exec ${pkgs.nodejs}/bin/node ${node-modules}/lib/node_modules/frontend # to wherever the binary will be
-        '';
-      };
+  outputs = { self, flake-compat, flake-utils, nixpkgs, ... }@inputs:
 
-      #development Environment
-      devShells = {
-        default = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            node2nix
-            nodePackages.typescript
-            nodePackages.typescript-language-server
-            nodejs
-            postgresql_16
-            yarn
-          ];
-          shellHook = ''
-            zsh
-            exit
+    flake-utils.lib.eachDefaultSystem (system:
+      let pkgs = inputs.nixpkgs.legacyPackages.${system};
+      in {
+        packages = rec {
+          node-modules = pkgs.mkYarnPackage {
+            pname = "pdaFrontEnd";
+            version = "0.0.1";
+            doDist = true;
+            src = ./frontend;
+            buildPhase = ''
+              export HOME=$(mktemp -d)
+              yarn --offline build
+            '';
+          };
+          entryPoint = pkgs.writeShellScriptBin "startFrontEnd" ''
+            export NODE_PATH=${node-modules}/libexec/frontend/node_modules
+
+            exec ${pkgs.nodejs}/bin/node ${node-modules}/libexec/frontend/deps/frontend/server.js
           '';
+          default = pkgs.stdenv.mkDerivation rec {
+            name = "pdaFrontEnd";
+            src = ./frontend;
+            buildInputs = [ node-modules entryPoint ];
+            installPhase = ''
+              mkdir -p $out/bin
+              cp -r ${node-modules}/libexec/frontend/deps/frontend $out/lib
+              cp ${entryPoint}/bin/startFrontEnd $out/bin/pdaFrontEnd
+            '';
+          };
         };
-      };
-    });
+
+        #development Environment
+        devShells = {
+          default = pkgs.mkShell {
+            buildInputs = with pkgs; [
+              node2nix
+              nodePackages.typescript
+              nodePackages.typescript-language-server
+              nodejs
+              postgresql_16
+              yarn
+            ];
+            shellHook = ''
+              zsh
+              exit
+            '';
+          };
+        };
+      });
 }
