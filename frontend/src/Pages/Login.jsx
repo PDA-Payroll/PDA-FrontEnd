@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import axios, { AxiosHeaders } from "axios";
 import { useNavigate } from "react-router-dom";
 import "../Styles/Login.css";
 
@@ -10,6 +10,13 @@ function Login() {
 	const [employeeUserName, setEmployeeUserName] = useState("");
 	const [employeePassword, setEmployeePassword] = useState("");
 	const [message, setMessage] = useState("");
+	const axiosConfig = {
+		headers: {
+			"Content-Type": "application/json",
+			"Access-Control-Allow-Origin": "*",
+			Accept: "application/json",
+		},
+	};
 
 	//checking console log if login button works correctly
 	const handleLogin = () => {
@@ -17,14 +24,18 @@ function Login() {
 
 		// Send the username and password to the server
 		axios
-			.post(`http://localhost:6969/auth/login`, {
-				employeeUserName: "someUsernameHere",
-				employeePassword: "somePasswordHere",
-			})
+			.post(
+				`http://localhost:6969/auth/login`,
+				{
+					employeeUserName: employeeUserName,
+					employeePassword: employeePassword,
+				},
+				axiosConfig,
+			)
 			.then((response) => {
 				//console log to check if server connected or not
-				console.log("Response status:", response.status);
-				console.log("Response data:", response.data);
+				console.log("Response status:", response.id);
+				console.log("Response data:", response.employeeFirstName);
 
 				if (response.status === 200) {
 					setMessage("Login successful!");
