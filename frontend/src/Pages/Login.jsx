@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios, { AxiosHeaders } from "axios";
 import { useNavigate } from "react-router-dom";
 import "../Styles/Login.css";
+import { backendServer } from "../../constants";
 
 function Login() {
 	//navigate to different pages specifically home page
@@ -13,7 +14,7 @@ function Login() {
 	const axiosConfig = {
 		headers: {
 			"Content-Type": "application/json",
-			"Access-Control-Allow-Origin": "*",
+			"Access-Control-Allow-Origin": `http://${backendServer}`,
 			Accept: "application/json",
 		},
 	};
@@ -25,7 +26,7 @@ function Login() {
 		// Send the username and password to the server
 		axios
 			.post(
-				`http://localhost:6969/auth/login`,
+				`http://${backendServer}/auth/login`,
 				{
 					employeeUserName: employeeUserName,
 					employeePassword: employeePassword,
