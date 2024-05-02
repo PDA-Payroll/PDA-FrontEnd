@@ -1,5 +1,5 @@
 
-  
+  /*Punchcard Request Page*/
   
   .rectangle-pr {
     background-color:#EBF5EE; 
@@ -15,19 +15,19 @@
     padding-right: 25px;
   }
   .title-punch .text-punch {
-    color: #040720; 
-    margin-top: -120px;
+    color: black; 
+    margin-top: -50px;
   }
   
   .current-date-time p {
-    color: #040720; 
+    color: black; 
   }
 
   .button-container {
     margin-top: 20px; 
   }
   
-  .deny-button, .approve-button {
+.submit-button {
     padding: 10px 20px;
     margin-right: 10px;
     background-color: #040720; 
@@ -37,16 +37,19 @@
     cursor: pointer;
   }
   
-  .approve-button {
+  .submit-button {
     background-color: #040720; 
   }
 
-  .deny-button:hover {
+
+  .submit-button:hover {
     background-color: #575c59;
   }
 
-  .approve-button:hover {
-    background-color: #575c59;
+  .time-worked{
+      font-size: 1.2em;
+      color: black;
+      margin-top: 10px;
   }
 
   
