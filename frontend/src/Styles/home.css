@@ -25,6 +25,17 @@ h1 {
 p {
   font-size: 20px;
   color: #ffffff; 
+  bottom:0px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  top:400px;
+  margin: auto;
+  position: absolute;
+  left:700px;
+
+
+
 }
 
 
@@ -57,7 +68,7 @@ p {
 
 
 
-.bubbled-clockout {
+.button-clockout {
   background-color: #EBF5EE;
   width: 170px;
   height: 110px;
@@ -76,7 +87,7 @@ p {
 
 
 
-.bubbled-clockin{
+.button-clockin{
   background-color: #EBF5EE; 
   width: 150px;  
   height: 110px; 
@@ -96,7 +107,7 @@ p {
 
 
 
-.bubbled-lastPunch{
+.button-lastPunch{
   background-color: #EBF5EE; 
   width: 150px;  
   height: 110px; 
@@ -114,7 +125,7 @@ p {
 
 
 
-.bubbled-logout{
+.button-logout{
   background-color: #EBF5EE; 
   width: 145px;  
   height: 110px; 
@@ -130,7 +141,7 @@ p {
   padding-right: 25px;
 }
 
-.bubbled-punchRequest{
+.button-punchRequest{
   background-color: #EBF5EE; 
   width: 160px;  
   height: 130px; 
@@ -147,6 +158,16 @@ p {
   padding-right: 25px;
 }
 
+.Button{
+  background-color: #040720;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-top: 20px;
+  font-family: sans-serif;
+}
 
 .message{
   display: flex;
@@ -168,20 +189,31 @@ p {
 }
 
 .date{
-  font-size: 25px;
+  font-size: 20px;
   color: #ffffff; 
-  margin-top: 500px;
-  text-align: center;
+  bottom:0px;
   justify-content: center;
+  align-items: center;
+  display: flex;
+  top:500px;
+  margin: auto;
+  position: absolute;
+  left:700px;
+
 }
 
 .time{
-  font-size: 25px;
+  font-size: 20px;
   color: #ffffff; 
-  position: absolute;
-  margin-top: 400px;
-  text-align: center;
+  bottom:0px;
   justify-content: center;
+  align-items: center;
+  display: flex;
+  top:400px;
+  margin: auto;
+  position: absolute;
+  left:750px;
+
 }
 
 

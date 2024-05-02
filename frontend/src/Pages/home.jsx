@@ -1,8 +1,52 @@
 import '../Styles/home.css';
 import React from 'react';
+import CurrentDate from '../Styles/CurrentDate';
+import CurrentTime from '../Styles/CurrentTime';
+import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 
+
 function Home() {
+
+
+  
+
+    const handleClockIn = ()=> {
+        
+      const time = new Date().toLocaleTimeString();
+      setCurrentTime(time);
+      console.log("Clocked-In at ");
+      setMessage('Clocked-In at ');
+      alert('You clocked in!');
+    }
+
+    const handleClockOut = ()=> {
+
+      console.log("Clocked-Out at ");
+      setMessage('Clocked-Out at ')
+    }
+
+
+    const handleLastPunch = ()=> {
+      
+      console.log("Last Punched at ");
+      setMessage('Last Punch at ')
+    }
+
+
+    const handleLogOut = ()=> {
+     
+      console.log("logged Out");
+    }
+
+
+    const handlePunchRequest = ()=> {
+     
+      console.log("Punch Request")
+    }
+
+
+
   return (
     <div className="Home-container">
       <div className="bubbled-rectangle1">
@@ -10,31 +54,61 @@ function Home() {
           <h1 className="title-text"> Welcome, Christian! </h1>
         </div>
       </div>
+     
+      <React.StrictMode>
+         <CurrentDate />
+      </React.StrictMode>
 
-      <div className="bubbled-clockin">
-        <h1 className="title-text"> Clock-in </h1>
+
+      <React.StrictMode>
+        <CurrentTime />
+      </React.StrictMode>
+
+
+
+    <button className="button-clockin"  onClick={(handleClockIn) => alert('You Clocked In!')}> 
+         Clock-in 
+       </button>
+   
+
+
+      <button className ="button-clockout" onClick={(handleClockOut) => alert('You Clocked Out!')}>
+         Clock-out 
+      </button> 
+
+
+
+      <button className="button-logout" onClick={handleLogOut}> 
+      {/* Use Link to navigate to the Login Page */}
+          <Link to ="/login">
+            Log Out 
+          </Link>
+      </button> 
+  
+      
+       <button  className="button-lastPunch" onClick={handleLastPunch => alert('Last Punch at!')}> 
+          Last Punch 
+       </button> 
+
+
+      <button className="button-punchRequest" onClick={handlePunchRequest}> 
+      {/* Use Link to navigate to the punch card request page */}
+        <link to ="/punchcard-request">
+         Punch Request 
+        </link>
+      </button>
+      
+
+
+     
+
+
+
+
       </div>
+      
 
-      <div className="bubbled-clockout">
-        <h1 className="title-text"> Clock-out </h1>
-      </div>
-
-      <div className="bubbled-logout">
-      <Link to="/Logout" className="title-text"> Log out </Link>
-      </div>
-
-      <div className="bubbled-lastPunch">
-        <h1 className="title-text"> Last Punch </h1>
-      </div>
-
-      <div className="bubbled-punchRequest">
-        {/* Use Link to navigate to the punch card request page */}
-        <Link to="/punchcard-request" className="title-text"> Punch Request </Link>
-      </div>
-
-      <h1 className="time">21:35</h1>
-      <h1 className="date">Friday, April 19, 2024</h1>
-    </div>
+   
   );
 }
 
