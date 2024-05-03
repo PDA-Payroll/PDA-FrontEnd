@@ -25,7 +25,199 @@ h1 {
 p {
   font-size: 20px;
   color: #ffffff; 
+  bottom:0px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  top:400px;
+  margin: auto;
+  position: absolute;
+  left:700px;
+
+
+
 }
+
+
+
+.bubbled-rectangle1 {
+  background-color: #EBF5EE; 
+  width: 400px;  
+  height: 150px; 
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 50px;
+  padding-left: 25px; 
+  padding-right: 25px;
+}
+
+.bubbled-text {
+  color: #040720;
+  font-family: sans-serif;
+  
+  margin: 50px 10px 0;
+  top: 0px; /* Increase this value to move the text further down */
+  left: 10px;
+}
+
+
+
+.button-clockout {
+  background-color: #EBF5EE;
+  width: 170px;
+  height: 110px;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  position: absolute;
+  top: 380px;
+  bottom: 60px;
+  left: 500px;
+  padding: 0 10px; /* Adjust padding */
+}
+
+
+
+.button-clockin{
+  background-color: #EBF5EE; 
+  width: 180px;  
+  height: 110px; 
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 380px;
+  bottom: 60px;
+
+  right: 400px;
+  padding-left: 25px; 
+  padding-right: 25px;
+}
+
+
+
+.button-lastPunch{
+  background-color: #EBF5EE; 
+  width: 150px;  
+  height: 110px; 
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: -10px;
+  right: 230px;
+  padding-left: 25px; 
+  padding-right: 25px;
+}
+
+
+
+.button-logout{
+  background-color: #EBF5EE; 
+  width: 145px;  
+  height: 110px; 
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 10px;
+  right: 230px;
+  padding-left: 25px; 
+  padding-right: 25px;
+}
+
+.button-punchRequest{
+  background-color: #EBF5EE; 
+  width: 160px;  
+  height: 130px; 
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  position: absolute;
+  top: 45px;
+  right: 10px;
+  padding-left: 25px; 
+  padding-right: 25px;
+}
+
+.Button{
+  background-color: #040720;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-top: 20px;
+  font-family: sans-serif;
+}
+
+.message{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+
+.icon{
+  margin-right: 10px;
+
+}
+
+.text{
+  background-color: #040720;
+  padding: 10px;
+  border-radius: 5px;
+  
+}
+
+.date{
+  font-size: 20px;
+  color: #ffffff; 
+  bottom:0px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  top:500px;
+  margin: auto;
+  position: absolute;
+  left:700px;
+
+}
+
+.time{
+  font-size: 20px;
+  color: #ffffff; 
+  bottom:0px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  top:400px;
+  margin: auto;
+  position: absolute;
+  left:750px;
+
+}
+
+
+
 
 
 

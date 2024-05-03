@@ -1,7 +1,7 @@
 import '../Styles/home.css';
 import React from 'react';
-import CurrentDate from '../Styles/CurrentDate';
-import CurrentTime from '../Styles/CurrentTime';
+import CurrentDate from '../Styles/CurrentDate.jsx';
+import CurrentTime from '../Styles/CurrentTime.jsx';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 
@@ -48,6 +48,9 @@ function Home() {
 
 
   return (
+
+
+
     <div className="Home-container">
       <div className="bubbled-rectangle1">
         <div className="title-container">
@@ -55,20 +58,11 @@ function Home() {
         </div>
       </div>
      
-      <React.StrictMode>
-         <CurrentDate />
-      </React.StrictMode>
 
 
-      <React.StrictMode>
-        <CurrentTime />
-      </React.StrictMode>
-
-
-
-    <button className="button-clockin"  onClick={(handleClockIn) => alert('You Clocked In!')}> 
+      <button className="button-clockin"  onClick={(handleClockIn) => alert('You Clocked In!')}> 
          Clock-in 
-       </button>
+      </button>
    
 
 
@@ -93,7 +87,12 @@ function Home() {
       <button className="button-punchRequest" onClick={handlePunchRequest}> 
         Punch Request 
       </button>
-      
+
+
+
+
+
+
 
       </div>
       

@@ -2,8 +2,15 @@ import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from "../AuthContext";
 import "../Styles/home.css" 
+import CurrentDate from '../Styles/CurrentDate.jsx';
+import CurrentTime from '../Styles/CurrentTime.jsx';
+import ReactDOM from 'react-dom';
+
+
 
 function Home() {
+
+
     const { logout } = useContext(AuthContext);
     const location = useLocation();
     const firstName = location.state ? location.state.firstName : ""; // Get first name from location state
@@ -13,7 +20,49 @@ function Home() {
         console.log("User logged out successfully!");
     };
 
+
+
+
+    const handleClockIn = ()=> {
+        
+        const time = new Date().toLocaleTimeString();
+        setCurrentTime(time);
+        console.log("Clocked-In at ");
+        setMessage('Clocked-In at ');
+        alert('You clocked in!');
+      }
+  
+      const handleClockOut = ()=> {
+  
+        console.log("Clocked-Out at ");
+        setMessage('Clocked-Out at ')
+      }
+  
+  
+      const handleLastPunch = ()=> {
+        
+        console.log("Last Punched at ");
+        setMessage('Last Punch at ')
+      }
+  
+  
+     
+  
+      const handlePunchRequest = ()=> {
+       
+        console.log("Punch Request")
+      }
+  
+
+
+
+
+
+
+
     return (
+
+
         <div className="Home-container">
             <div className="bubbled-rectangle1">
                 <div className="title-container">
@@ -21,28 +70,50 @@ function Home() {
                 </div>
             </div>
 
-            <div className="bubbled-clockin">
-                <h1 className="title-text"> Clock-in </h1>
-            </div>
 
-            <div className="bubbled-clockout">
-                <h1 className="title-text"> Clock-out </h1>
-            </div>
 
-            <div className="bubbled-logout">
-                <Link to="/Logout" className="title-text" onClick={handleLogout}> Log out </Link>
-            </div>
 
-            <div className="bubbled-lastPunch">
-                <h1 className="title-text"> Last Punch </h1>
-            </div>
 
-            <div className="bubbled-punchRequest">
-                <Link to="/punchcard-request" className="title-text"> Punch Request </Link>
-            </div>
 
-            <h1 className="time">21:35</h1>
-            <h1 className="date">Friday, April 19, 2024</h1>
+
+
+
+             <button className="button-clockin title-text"  onClick={(handleClockIn) => alert('You Clocked In!')}> 
+                Clock-in 
+            </button>
+
+            <button className ="button-clockout title-text"  onClick={(handleClockOut) => alert('You Clocked Out!')}>
+                Clock-out 
+            </button> 
+
+
+        <React.StrictMode>
+         <CurrentDate/>
+        </React.StrictMode>
+
+
+
+
+            <Link to="/Logout" className="title-text" onClick={handleLogout}>
+                <button className="bubbled-logout">
+                    Log out 
+                </button>
+            </Link>
+
+
+            <button  className="button-lastPunch title-text" onClick={handleLastPunch => alert('Last Punch at!')}> 
+                Last Punch 
+            </button> 
+
+            <Link to="/punchcard-request" className="title-text"> 
+                <button className="button-punchRequest">
+                    Punch Request 
+                </button>
+            </Link>
+            
+
+
+
         </div>
     );
 }
