@@ -64,6 +64,7 @@ function Login() {
                 </div>
                 <div className="bubbled-text">Username</div>
                 <input
+                    style={{color:'black'}}
                     type="text"
                     className="username-input"
                     placeholder="Enter username"
@@ -72,6 +73,7 @@ function Login() {
                 />
                 <div className="bubbled-text2">Password</div>
                 <input
+                    style={{color:'black'}}
                     type="password"
                     className="password-input"
                     placeholder="Enter password"

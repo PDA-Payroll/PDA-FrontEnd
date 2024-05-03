@@ -8,6 +8,7 @@ import { AuthProvider } from './AuthContext'; // Import AuthProvider
 import './App.css';
 import './Styles/Login.css';
 import './Styles/home.css';
+import PunchHistory from './Pages/PunchHistory';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" exact element={<Login />} /> {/* Use element prop */}
           <Route path ="/punchcard-request" element={<Request/>} /> 
           <Route path ="/logout" element={<Logout/>}/> {/* Corrected route path */}
+          <Route path="/PunchHistory" element={<PunchHistory/>}/>{}
         </Routes>
       </Router>
     </AuthProvider>
