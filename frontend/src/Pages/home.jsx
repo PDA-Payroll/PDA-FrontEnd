@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from "../AuthContext";
-import "../Styles/home.css" 
+import "../Styles/home.css"
 import CurrentDate from '../Styles/CurrentDate.jsx';
 import CurrentTime from '../Styles/CurrentTime.jsx';
 import ReactDOM from 'react-dom';
@@ -19,50 +19,20 @@ function Home() {
         logout();
         console.log("User logged out successfully!");
     };
-
-
-
-
-    const handleClockIn = ()=> {
-        
+    const handleClockIn = () => {
         const time = new Date().toLocaleTimeString();
         setCurrentTime(time);
         console.log("Clocked-In at ");
         setMessage('Clocked-In at ');
         alert('You clocked in!');
-      }
-  
-      const handleClockOut = ()=> {
-  
+    }
+    const handleClockOut = () => {
+
         console.log("Clocked-Out at ");
         setMessage('Clocked-Out at ')
-      }
-  
-  
-      const handleLastPunch = ()=> {
-        
-        console.log("Last Punched at ");
-        setMessage('Last Punch at ')
-      }
-  
-  
-     
-  
-      const handlePunchRequest = ()=> {
-       
-        console.log("Punch Request")
-      }
-  
-
-
-
-
-
-
+    }
 
     return (
-
-
         <div className="Home-container">
             <div className="bubbled-rectangle1">
                 <div className="title-container">
@@ -70,50 +40,34 @@ function Home() {
                 </div>
             </div>
 
-
-
-
-
-
-
-
-
-             <button className="button-clockin title-text"  onClick={(handleClockIn) => alert('You Clocked In!')}> 
-                Clock-in 
+            <button className="button-clockin title-text" onClick={(handleClockIn) => alert('You Clocked In!')}>
+                Clock-in
             </button>
 
-            <button className ="button-clockout title-text"  onClick={(handleClockOut) => alert('You Clocked Out!')}>
-                Clock-out 
-            </button> 
+            <button className="button-clockout title-text" onClick={(handleClockOut) => alert('You Clocked Out!')}>
+                Clock-out
+            </button>
 
 
-        <React.StrictMode>
-         <CurrentDate/>
-        </React.StrictMode>
-
-
-
+            {/*<React.StrictMode>*/}
+            <CurrentDate />
+            {/*</React.StrictMode>*/}
 
             <Link to="/Logout" className="title-text" onClick={handleLogout}>
-                <button className="bubbled-logout">
-                    Log out 
+                <button style={{color: "black"}} className="bubbled-logout">
+                    Log Out
                 </button>
             </Link>
-
-
-            <button  className="button-lastPunch title-text" onClick={handleLastPunch => alert('Last Punch at!')}> 
-                Last Punch 
-            </button> 
-
-            <Link to="/punchcard-request" className="title-text"> 
-                <button className="button-punchRequest">
-                    Punch Request 
+            <Link to="/PunchHistory" className='title-text'>
+                <button style={{color: "black"}}className="button-lastPunch title-text">
+                    Punch History
                 </button>
             </Link>
-            
-
-
-
+            <Link to="/punchcard-request" className="title-text">
+                <button style={{color: "black"}}className="button-punchRequest">
+                    Punch Request
+                </button>
+            </Link>
         </div>
     );
 }
