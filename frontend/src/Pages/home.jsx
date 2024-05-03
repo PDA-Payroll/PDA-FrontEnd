@@ -34,7 +34,7 @@ function Home() {
             </div>
 
             <div className="bubbled-lastPunch">
-                <h1 className="title-text"> Last Punch </h1>
+               <h2><Link to="/PunchHistory" className = "title-text"> Punch History </Link></h2> 
             </div>
 
             <div className="bubbled-punchRequest">
