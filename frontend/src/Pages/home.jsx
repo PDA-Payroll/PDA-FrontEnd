@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { AuthContext } from "../AuthContext"; 
+import { AuthContext } from "../AuthContext";
+import "../Styles/home.css" 
 
 function Home() {
     const { logout } = useContext(AuthContext);

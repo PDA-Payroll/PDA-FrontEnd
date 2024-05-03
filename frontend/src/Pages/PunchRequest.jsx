@@ -39,20 +39,36 @@ function PunchRequest() {
   // Handler function for form submission
   const handleSubmit = async () => {
     try {
-      // Prepare data to send; date in and date out with timezone
+      // Convert selected date to UTC format for consistency
+      const utcStartDate = new Date(startDate.toISOString());
+  
+      // Extract hours and minutes from start time
+      const [startHours, startMinutes] = startTime.split(':').map(val => parseInt(val));
+  
+      // Set dateIn with start time
+      utcStartDate.setUTCHours(startHours);
+      utcStartDate.setUTCMinutes(startMinutes);
+      utcStartDate.setUTCSeconds(0);
+  
+      // Extract hours and minutes from end time
+      const [endHours, endMinutes] = endTime.split(':').map(val => parseInt(val));
+  
+      // Set dateOut with end time
+      const utcEndDate = new Date(utcStartDate);
+      utcEndDate.setUTCHours(endHours);
+      utcEndDate.setUTCMinutes(endMinutes);
+      utcEndDate.setUTCSeconds(0);
+  
+      // Prepare data to send; date in and date out with UTC timezone
       const requestData = {
-        dateIn: startDate.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }), // Replace 'America/New_York' with your desired time zone
-        dateOut: new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }), // Use current date for dateOut
+        dateIn: utcStartDate.toISOString(), // Convert selected date to UTC format
+        dateOut: utcEndDate.toISOString(), // Convert end time date to UTC format
       };
-
-      
+  
       const response = await axios.post(`http://${backendServer}/punchCard/post/create`, requestData);
-
-     
+  
       setMessage("Punch request submitted successfully!");
-      console.log(response.data); 
-
-      
+      console.log(response.data);
     } catch (error) {
       console.error("An error occurred:", error);
       setMessage("Failed to submit punch request. Please try again.");
@@ -110,7 +126,15 @@ function getCurrentDateWithTimeRange(startDate, startTime, endTime) {
     "August", "September", "October", "November", "December"
   ];
   const month = months[startDate.getMonth()];
-  const day = startDate.getDate();
+  let day = startDate.getDate() + 1; // Add 1 to the selected day
+  let nextMonth = false;
+
+  // Check if adding 1 to the day exceeds the number of days in the month
+  if (day > new Date(year, startDate.getMonth() + 1, 0).getDate()) {
+    day = 1;
+    nextMonth = true;
+  }
+
   let suffix = "th";
 
   if (day === 1 || day === 21 || day === 31) {
@@ -121,9 +145,15 @@ function getCurrentDateWithTimeRange(startDate, startTime, endTime) {
     suffix = "rd";
   }
 
-  const formattedDate = `${month} ${day}${suffix}, ${year}`;
+  // Adjust the month if necessary
+  const displayMonth = nextMonth ? months[startDate.getMonth() + 1] : month;
+  
+  // Adjust the year if necessary
+  const displayYear = nextMonth ? year : year;
+
+  const formattedDate = `${displayMonth} ${day}${suffix}, ${displayYear}`;
   return `Selected date: ${formattedDate}, Time Range: ${startTime} to ${endTime}`;
 }
 
-export default PunchRequest;
 
+export default PunchRequest;
