@@ -62,11 +62,12 @@ function Home() {
       </button>
 
 
-      <Link to="/Logout" className='title-text'>
+      <Link to="/Logout" className='title-text' onClick={handleLogout}>
         <button style={{ color: "black" }} className="button-logout title-text">
           Log Out
         </button>
       </Link>
+
 
       <Link to="/PunchHistory" className='title-text'>
         <button style={{ color: "black" }} className="button-lastPunch title-text">
