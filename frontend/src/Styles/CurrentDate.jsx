@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../Styles/home.css';
 
 function CurrentDate(){
     const currentDate = new Date();
@@ -13,8 +13,8 @@ function CurrentDate(){
     });
 
     return (
-      <div>
-        <p className="date"> {formattedDate}</p>
+      <div className="current-date">
+        <p>{formattedDate}</p>
       </div>
     )
   }

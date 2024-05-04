@@ -15,30 +15,11 @@ body {
   height: 80vh;  /* Updated height to cover the entire viewport height */
 
 }
-
-h1 {
+.name-text{
+  background-color: #EBF5EE;
+  color: black;
   font-size: 35px;
-  color: #ffffff; 
-  margin-bottom: 20px;
 }
-
-p {
-  font-size: 20px;
-  color: #ffffff; 
-  bottom:0px;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  top:400px;
-  margin: auto;
-  position: absolute;
-  left:700px;
-
-
-
-}
-
-
 
 .bubbled-rectangle1 {
   background-color: #EBF5EE; 
@@ -66,9 +47,7 @@ p {
   left: 10px;
 }
 
-
-
-.button-clockout {
+.button-clockin {
   background-color: #EBF5EE;
   width: 170px;
   height: 110px;
@@ -85,9 +64,7 @@ p {
   padding: 0 10px; /* Adjust padding */
 }
 
-
-
-.button-clockin{
+.button-clockout{
   background-color: #EBF5EE; 
   width: 180px;  
   height: 110px; 
@@ -99,31 +76,10 @@ p {
   position: absolute;
   top: 380px;
   bottom: 60px;
-
   right: 400px;
   padding-left: 25px; 
   padding-right: 25px;
 }
-
-
-
-.button-lastPunch{
-  background-color: #EBF5EE; 
-  width: 150px;  
-  height: 110px; 
-  border-radius: 25px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  bottom: -10px;
-  right: 230px;
-  padding-left: 25px; 
-  padding-right: 25px;
-}
-
-
 
 .button-logout{
   background-color: #EBF5EE; 
@@ -135,8 +91,8 @@ p {
   align-items: center;
   justify-content: center;
   position: absolute;
-  bottom: 10px;
-  right: 230px;
+  bottom: -10px;
+  right: 10px;
   padding-left: 25px; 
   padding-right: 25px;
 }
@@ -215,10 +171,6 @@ p {
   left:750px;
 
 }
-
-
-
-
 
 
 .bubbled-rectangle1 {
@@ -305,10 +257,25 @@ p {
 }
 
 
+.button-lastPunch{
+  background-color: #EBF5EE; 
+  width: 150px;  
+  height: 110px; 
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: -10px;
+  right: 230px;
+  padding-left: 25px; 
+  padding-right: 25px;
+}
 
 .bubbled-logout{
   background-color: #EBF5EE; 
-  width: 145px;  
+  width: 200px;  
   height: 110px; 
   border-radius: 25px;
   display: flex;
@@ -361,7 +328,7 @@ p {
 
 .date{
   font-size: 25px;
-  color: #ffffff; 
+  color: black; 
   margin-top: 500px;
   text-align: center;
   justify-content: center;
@@ -369,11 +336,38 @@ p {
 
 .time{
   font-size: 25px;
-  color: #ffffff; 
+  color: black; 
   position: absolute;
   margin-top: 400px;
   text-align: center;
   justify-content: center;
+}
+
+.title-text:hover {
+  background-color: #c9f3d5; /* Change to the desired hover background color */ /* Change to the desired hover text color */
+}
+.current-time {
+  position: fixed;
+  color: white;
+  top: 10%;
+  left: 50%;
+  font-size: 30px;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.current-date {
+  position: fixed;
+  color: white;
+  top: 15%;
+  left: 50%;
+  font-size: 30px;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 
