@@ -99,8 +99,8 @@ body {
 
 .button-punchRequest{
   background-color: #EBF5EE; 
-  width: 160px;  
-  height: 130px; 
+  width: 300px;  
+  height: 100px; 
   border-radius: 25px;
   display: flex;
   flex-direction: column;
@@ -108,8 +108,8 @@ body {
   text-align: center;
   justify-content: center;
   position: absolute;
-  top: 45px;
-  right: 10px;
+  top: 420px;
+  right: 600px;
   padding-left: 25px; 
   padding-right: 25px;
 }

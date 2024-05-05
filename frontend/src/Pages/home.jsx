@@ -19,6 +19,7 @@ function Home() {
     alert('You clocked in!');
   }
 
+  
   const handleClockOut = () => {
 
     console.log("Clocked-Out at ");
@@ -43,23 +44,11 @@ function Home() {
       <CurrentTime />
       <CurrentDate />
 
-      <button
-        className="button-clockin title-text"
-        style={{ color: "black" }}
-        onClick={() => alert('You Clocked In!')}
-      >
-        Clock In
-      </button>
 
 
 
-      <button
-        className="button-clockout title-text"
-        style={{ color: "black" }}
-        onClick={() => alert('You Clocked Out!')}
-      >
-        Clock Out
-      </button>
+
+
 
 
       <Link to="/Logout" className='title-text' onClick={handleLogout}>
