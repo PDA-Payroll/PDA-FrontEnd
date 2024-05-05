@@ -67,6 +67,7 @@ function Login() {
         />
         <div className="bubbled-text2">Password</div>
         <input
+          style={{ color: "black" }} 
           type="password"
           className="password-input"
           placeholder="Enter password"
