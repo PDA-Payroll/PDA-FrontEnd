@@ -6,12 +6,15 @@ import { backendServer } from "../../constants";
 import { AuthContext } from "../AuthContext"; // Import AuthContext
 
 function Login() {
+
+
   const { login } = useContext(AuthContext); // Access the login function from the AuthContext
   const navigate = useNavigate();
   const [employeeUserName, setEmployeeUserName] = useState("");
   const [employeePassword, setEmployeePassword] = useState("");
   const [message, setMessage] = useState("");
 
+  
   const handleLogin = () => {
     console.log("Login button clicked");
 
