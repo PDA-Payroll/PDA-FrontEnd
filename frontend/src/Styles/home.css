@@ -96,6 +96,18 @@ body {
   padding-left: 25px; 
   padding-right: 25px;
 }
+.mantine-Button-root{
+  background-color: #EBF5EE;
+  &:hover{
+    background-color: #c9f3d5;
+  }
+  border-radius: 25px;
+  font-family: Arial, sans-serif;
+  font-size: xx-large;
+  justify-content: center;
+  width: 310px;
+  height: 100px;
+}
 
 .button-punchRequest{
   background-color: #EBF5EE; 

@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { AuthContext } from "../AuthContext";
+import { AuthContext } from "../AuthContext.jsx";
 import "../Styles/home.css"
 import CurrentDate from '../Styles/CurrentDate.jsx';
 import CurrentTime from '../Styles/CurrentTime.jsx';
+import { MantineProvider, Button, Group } from "@mantine/core"
 
-
-function Home() {
+function AdminHome() {
   const { logout } = useContext(AuthContext);
   const location = useLocation();
   const firstName = location.state ? location.state.firstName : ""; // Get first name from location state
@@ -49,22 +49,21 @@ function Home() {
           Log Out
         </button>
       </Link>
-
+      <div>
+        <MantineProvider>
+          <Group>
+            <Button component={Link} to="/EmployeeModifier"  style={{ color: "black" }}>Employee Accounts</Button>
+            <Button component={Link} to="/punchcard-request" className={Button.classes.root}style={{color:"black"}}>Punch Request</Button> 
+          </Group>
+        </MantineProvider>
+      </div>
       <Link to="/PunchHistory" className='title-text'>
         <button style={{ color: "black" }} className="button-lastPunch title-text">
           Punch History
         </button>
       </Link>
-
-      <Link to="/punchcard-request" className='title-text'>
-        <button style={{ color: "black" }} className="button-punchRequest title-text">
-          Punch Request
-        </button>
-      </Link>
-
     </div>
   );
 }
-
-export default Home;
+export default AdminHome;
 

@@ -14,7 +14,7 @@ function Login() {
   const [employeePassword, setEmployeePassword] = useState("");
   const [message, setMessage] = useState("");
 
-  
+
   const handleLogin = () => {
     console.log("Login button clicked");
 
@@ -43,7 +43,12 @@ function Login() {
           console.log("First Name:", firstName);
 
           // Navigate to the dashboard route and pass the first name as state
-          navigate("/dashboard", { state: { firstName: firstName } });
+          if (response.data.employeeInfo.isAdmin == true || response.data.employeeInfo.isSupervisor == true) {
+            navigate("/adminHome", { state: { firstName: firstName } })
+          }
+          else {
+            navigate("/dashboard", { state: { firstName: firstName } });
+          }
         } else {
           throw new Error("Incorrect Username or Password");
         }
@@ -62,6 +67,7 @@ function Login() {
         </div>
         <div className="bubbled-text">Username</div>
         <input
+          style={{ color: "black" }}
           type="text"
           className="username-input"
           placeholder="Enter username"
@@ -70,7 +76,7 @@ function Login() {
         />
         <div className="bubbled-text2">Password</div>
         <input
-          style={{ color: "black" }} 
+          style={{ color: "black" }}
           type="password"
           className="password-input"
           placeholder="Enter password"
