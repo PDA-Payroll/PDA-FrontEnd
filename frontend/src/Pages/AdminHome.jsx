@@ -1,16 +1,19 @@
+import '@mantine/core/styles/UnstyledButton.css';
+import '@mantine/core/styles/Button.css';
+import '@mantine/core/styles/Group.css'
+import "../Styles/home.css";
 import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from "../AuthContext.jsx";
-import "../Styles/home.css"
 import CurrentDate from '../Styles/CurrentDate.jsx';
 import CurrentTime from '../Styles/CurrentTime.jsx';
 import { MantineProvider, Button, Group } from "@mantine/core"
-import '@m'
 
 function AdminHome() {
   const { logout } = useContext(AuthContext);
   const location = useLocation();
   const firstName = location.state ? location.state.firstName : ""; // Get first name from location state
+  const isAdmin = location.state ? location.state.isAdmin : false;
 
   const handleClockIn = () => {
 
@@ -50,14 +53,16 @@ function AdminHome() {
           Log Out
         </button>
       </Link>
+      
       <div>
         <MantineProvider>
-          <Group>
-            <Button component={Link} to="/EmployeeModifier"  style={{ color: "black" }}>Employee Accounts</Button>
-            <Button component={Link} to="/punchcard-request" className={Button.classes.root}style={{color:"black"}}>Punch Request</Button> 
+          <Group gap="xl">
+            <Button  component={Link} to="/EmployeeModifier" variant="filled"  style={{ color: "black" }} >Employee Accounts</Button>
+            <Button component={Link} to="/punchcard-request" variant="filled" style={{color:"black"}}> Punch Request </Button> 
           </Group>
         </MantineProvider>
       </div>
+
       <Link to="/PunchHistory" className='title-text'>
         <button style={{ color: "black" }} className="button-lastPunch title-text">
           Punch History

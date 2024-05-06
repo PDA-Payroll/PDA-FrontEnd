@@ -10,7 +10,7 @@ function Home() {
   const { logout } = useContext(AuthContext);
   const location = useLocation();
   const firstName = location.state ? location.state.firstName : ""; // Get first name from location state
-
+ console.log(location.state); 
   const handleClockIn = () => {
 
     const time = new Date().toLocaleTimeString();
