@@ -10,14 +10,6 @@ function Home() {
   const location = useLocation();
   const firstName = location.state ? location.state.firstName : ""; // Get first name from location state
 
-  const handleClockIn = () => {
-
-    const time = new Date().toLocaleTimeString();
-    setCurrentTime(time);
-    console.log("Clocked-In at ");
-    setMessage('Clocked-In at ');
-    alert('You clocked in!');
-  }
 
   
   const handleClockOut = () => {

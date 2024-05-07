@@ -3,11 +3,13 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Im
 import Login from './Pages/Login';
 import Home from './Pages/home'; 
 import Request from './Pages/PunchRequest';
-import Logout from './Pages/LogOut'
+import Logout from './Pages/LogOut';
+import PunchHistory from './Pages/PunchHistory';
 import { AuthProvider } from './AuthContext'; // Import AuthProvider
 import './App.css';
 import './Styles/Login.css';
 import './Styles/home.css';
+import './Styles/punchHistory.css';
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
           <Route path="/dashboard" element={<Home />} /> {/* Use element prop */}
           <Route path="/" exact element={<Login />} /> {/* Use element prop */}
           <Route path ="/punchcard-request" element={<Request/>} /> 
+          <Route path ="/PunchHistory" element={<PunchHistory/>} /> 
           <Route path ="/logout" element={<Logout/>}/> {/* Corrected route path */}
         </Routes>
       </Router>
