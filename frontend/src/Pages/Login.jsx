@@ -36,9 +36,8 @@ function Login() {
           const employeeID = response.data.employeeInfo.id;
           console.log("Employee ID:", employeeID);
 
-
+/*  firstName: firstNamee lastName: lastName,middleName: middleName, userName: userName, id:id, isAdmin:isAdmin, isSupervisor: isSupervisor, ssn: ssn, sId:sId*/
           // Call the login function from the AuthContext and pass the employee ID
-          login(employeeID);
 
           const firstName = response.data.employeeInfo.employeeFirstName;
           console.log("First Name:", firstName);
@@ -50,12 +49,14 @@ function Login() {
           const isSupervisor = response.data.employeeInfo.isSupervisor;
           const ssn = response.data.employeeInfo.socialSecurityNumber;
           const sId = response.data.employeeInfo.supervisorId; 
+
+          login(employeeID, firstName, lastName, middleName, userName, isAdmin, isSupervisor, sId, ssn);
           // Navigate to the dashboard route and pass the first name as state
           if (response.data.employeeInfo.isAdmin == true || response.data.employeeInfo.isSupervisor == true) {
             navigate("/adminHome", { state: {firstName: firstName} });/*  firstname: response.data.employeeInfo.employeeFirstName, lastName: response.data.employeeInfo.employeeLastName, middleName: response.data.employeeInfo.employeeMiddleName, userName: response.data.employeeInfo.employeeUserName, id:response.data.employeeInfo.id*/
           }
           else {
-            navigate("/dashboard", { state: { firstName: firstName, lastName: lastName,middleName: middleName, userName: userName, id:id, isAdmin:isAdmin, isSupervisor: isSupervisor, ssn: ssn, sId:sId} });
+            navigate("/dashboard", { state: {} });
           }
         } else {
           throw new Error("Incorrect Username or Password");

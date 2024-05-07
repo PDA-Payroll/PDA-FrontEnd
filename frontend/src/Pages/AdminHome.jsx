@@ -14,7 +14,6 @@ function AdminHome() {
   const location = useLocation();
   const firstName = location.state ? location.state.firstName : ""; // Get first name from location state
   const isAdmin = location.state ? location.state.isAdmin : false;
-
   const handleClockIn = () => {
 
     const time = new Date().toLocaleTimeString();
