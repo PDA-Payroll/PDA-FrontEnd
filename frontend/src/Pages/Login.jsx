@@ -7,7 +7,9 @@ import { AuthContext } from "../AuthContext"; // Import AuthContext
 
 function Login() {
 
-
+  //state variables for user name, password, message
+  //state variables are data that represents characteristics of a component at a certain point in time
+  //navigates to home page when logged in
   const { login } = useContext(AuthContext); // Access the login function from the AuthContext
   const navigate = useNavigate();
   const [employeeUserName, setEmployeeUserName] = useState("");
@@ -32,18 +34,18 @@ function Login() {
 
         if (response.data.employeeInfo) {
           setMessage("Login successful!");
-          console.log("Data:", response.data.employeeInfo);
-          const employeeID = response.data.employeeInfo.id;
-          console.log("Employee ID:", employeeID);
+          console.log("Data:", response.data.employeeInfo); //returns employee data in console log
+          const employeeID = response.data.employeeInfo.id; //employee id is given id from employee data
+          console.log("Employee ID:", employeeID); //returns employee id in console log
 
           // Call the login function from the AuthContext and pass the employee ID
           login(employeeID);
 
-          const firstName = response.data.employeeInfo.employeeFirstName;
-          console.log("First Name:", firstName);
-
-          // Navigate to the dashboard route and pass the first name as state
-          navigate("/dashboard", { state: { firstName: firstName } });
+          const firstName = response.data.employeeInfo.employeeFirstName; //first name is employee first name from response employee data
+          console.log("First Name:", firstName); //returns employee first name in console log
+          
+          // Navigate to the dashboard route and pass the first name as state; home page displays first name 
+          navigate("/dashboard", { state: { firstName: firstName } }); 
         } else {
           throw new Error("Incorrect Username or Password");
         }
@@ -65,8 +67,8 @@ function Login() {
           type="text"
           className="username-input"
           placeholder="Enter username"
-          value={employeeUserName}
-          onChange={(e) => setEmployeeUserName(e.target.value)}
+          value={employeeUserName} //input field for username
+          onChange={(e) => setEmployeeUserName(e.target.value)} //when user inputs into input field, onChange event is triggered 
         />
         <div className="bubbled-text2">Password</div>
         <input
@@ -88,5 +90,3 @@ function Login() {
 }
 
 export default Login;
-
-
