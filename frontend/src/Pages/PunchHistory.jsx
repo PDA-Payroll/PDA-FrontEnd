@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useState, useEffect} from "react";
 import {  Link, useLocation  } from "react-router-dom";
 import { AuthContext } from "../AuthContext"; 
 import "../Styles/punchHistory.css";
@@ -9,17 +9,10 @@ import { backendServer } from "../../constants";
 function PunchHistory() {
     const { logout } = useContext(AuthContext);
     const location = useLocation();
-    const firstName = location.state ? location.state.firstName : ""; // Get first name from location state
-    
+    const firstName = location.state ? location.state.employeeFirstName : ""; // Get first name from location state
+    const { employeeFirstName } = useContext(AuthContext);
+  
 
-
-    const displayLastPunch = {
-        
-
-
-    }
-    
-    
     const handleLogout = () => {
         logout();
         console.log("User logged out successfully!");
@@ -35,6 +28,42 @@ function PunchHistory() {
 
 
 
+
+
+
+
+
+
+
+
+      const [lastPunch,setLastPunch] = useState('');
+      const getLastPunch = () => {
+          axios.get('http://${backendServer}/punchCard/get/${id}')
+          .then(res =>{
+              console.log(res.data.content)
+              setLastPunch(res.data.content)
+  
+          }).catch(err => {
+              conseole.log(err)
+          })
+          }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return(
 
 
@@ -44,17 +73,23 @@ function PunchHistory() {
 
         <div className="Home-container">
             <div className="bubbled-rectangle">
-                <p className="text">Last Punch at:  
-                    <p className="timeDisplay">
-                        Almost done :)
-                    </p> 
+                <p className="text">Last Punch at:
+                <script>
+                    
+                fetch('/api/PunchCard')
+                    .then(response=?response.json)
+
+                </script>
+
+                
                 </p>
             </div>
         </div>
 
 
+         
 
-
+            
 
             <Link to="/Logout" className='title-text' onClick={handleLogout}>
                 <button style={{ color: "black" }} className="buttonLogout titleText">
@@ -78,7 +113,14 @@ function PunchHistory() {
 
 
 
-}
+
+    
+    
+
+
+    
+
+    }
 
 
 export default PunchHistory;
