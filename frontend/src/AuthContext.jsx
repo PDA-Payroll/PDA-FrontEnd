@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [employeeID, setEmployeeID] = useState(null); // Initialize employeeID as null
     const [firstName, setFirstName] = useState(null);
-    const [lastName, setLastName] = useSate(null);
+    const [lastName, setLastName] = useState(null);
     const[middleName, setMiddleName] = useState(null);
     const [userName, setUserName] = useState(null);
     const [isAdmin, setisAdmin] = useState(false);

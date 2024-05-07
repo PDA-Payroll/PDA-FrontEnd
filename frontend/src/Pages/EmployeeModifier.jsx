@@ -2,11 +2,10 @@ import '@mantine/core/styles/Modal.css';
 import axios from 'axios';
 import React from 'react';
 import '../Styles/EmployeeModifier.css'
-import {MantineProvider,Modal, Button} from "@mantine/core"
+import {MantineProvider,Modal, Button, TextInput} from "@mantine/core"
 import AdminHome from './AdminHome';
 import { useDisclosure } from '@mantine/hooks';
 import { useState } from 'react';
-import { Form } from 'react-router-dom';
 
 export default function employeeModifier(){
     const [firstName, setFirstName] = useState('');
@@ -42,7 +41,9 @@ export default function employeeModifier(){
     return(
         <MantineProvider>
             <Modal opened={opened} onClose={close} title="Create Employee Account" centered>
-            
+           <TextInput
+           
+           ></TextInput> 
             </Modal>
             <Button style={{color: "black"}}onClick={open}>
                Create Employee 
