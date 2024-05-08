@@ -5,11 +5,12 @@ import "../Styles/home.css"
 import CurrentDate from '../Styles/CurrentDate.jsx';
 import CurrentTime from '../Styles/CurrentTime.jsx';
 
+
 function Home() {
   const { logout } = useContext(AuthContext);
   const location = useLocation();
   const firstName = location.state ? location.state.firstName : ""; // Get first name from location state
-
+ console.log(location.state); 
   const handleClockIn = () => {
 
     const time = new Date().toLocaleTimeString();
@@ -19,7 +20,7 @@ function Home() {
     alert('You clocked in!');
   }
 
-  
+
   const handleClockOut = () => {
 
     console.log("Clocked-Out at ");
@@ -43,20 +44,11 @@ function Home() {
       {/* Display CurrentTime component */}
       <CurrentTime />
       <CurrentDate />
-
-
-
-
-
-
-
-
       <Link to="/Logout" className='title-text' onClick={handleLogout}>
         <button style={{ color: "black" }} className="button-logout title-text">
           Log Out
         </button>
       </Link>
-
 
       <Link to="/PunchHistory" className='title-text'>
         <button style={{ color: "black" }} className="button-lastPunch title-text">

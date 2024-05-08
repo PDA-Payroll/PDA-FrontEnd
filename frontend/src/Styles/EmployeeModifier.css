@@ -1,0 +1,13 @@
+.mantine-Button-root{
+  background-color: #ebf5ee;
+  &:hover{
+    background-color: #c9f3d5;
+  }
+  flex-direction: row;
+  border-radius: 25px;
+  font-family: arial, sans-serif;
+  font-size: xx-large;
+  justify-content: center;
+  width: 310px;
+  height: 100px;
+}
