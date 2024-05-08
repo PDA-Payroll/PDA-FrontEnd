@@ -6,6 +6,7 @@ import { AuthContext } from '../AuthContext'; // Import AuthContext
 
 function PunchRequest() {
   // State variables for date, start time, end time, and message
+  //for example, startTime holds initial value of 9:00 AM, but setStartTime function updates startTime into what the user inputs.
   const [startDate, setStartDate] = useState(new Date());
   const [startTime, setStartTime] = useState("9:00 AM");
   const [endTime, setEndTime] = useState("5:00 PM");
@@ -14,9 +15,10 @@ function PunchRequest() {
   const { employeeID } = useContext(AuthContext);
 
   // Handler functions for date, start time, and end time changes
+  //for example, function handleStartDate is triggered when setStartDate has a new input, which is the new Date. 
   const handleStartDateChange = (event) => {
     setStartDate(new Date(event.target.value));
-    calculateTimeWorked(new Date(event.target.value), startTime, endTime);
+    calculateTimeWorked(new Date(event.target.value), startTime, endTime); //represents new date and current startTime and endTime. 
   };
 
   const handleStartTimeChange = (event) => {
@@ -31,23 +33,23 @@ function PunchRequest() {
 
   // Function to calculate time worked
   const calculateTimeWorked = (date, start, end) => {
-    const startDateTime = new Date(`2000-01-01 ${start}`);
-    const endDateTime = new Date(`2000-01-01 ${end}`);
+    const startDateTime = new Date(`2000-01-01 ${start}`); //fixed start date
+    const endDateTime = new Date(`2000-01-01 ${end}`); //fixed end date because we only need one entire day 
     const millisecondsWorked = endDateTime - startDateTime;
-    const hoursWorked = millisecondsWorked / (1000 * 60 * 60);
-    setTimeWorked(hoursWorked.toFixed(2));
+    const hoursWorked = millisecondsWorked / (1000 * 60 * 60); //converts milliseconds worked into hours.
+    setTimeWorked(hoursWorked.toFixed(2)); //converts hoursWorked value to two decimal places
   };
 
   // Handler function for form submission
   const handleSubmit = async () => {
     try {
-      // Convert selected date to UTC format for consistency
-      const utcStartDate = new Date(startDate.toISOString());
+    
+      const utcStartDate = new Date(startDate.toISOString()); //converts start date to UTC format, aligns with database time 
 
       // Extract hours and minutes from start time
       const [startHours, startMinutes] = startTime.split(':').map(val => parseInt(val));
 
-      // Set dateIn with start time
+      // Set dateIn with extracted startHours and startMinutes
       utcStartDate.setUTCHours(startHours);
       utcStartDate.setUTCMinutes(startMinutes);
       utcStartDate.setUTCSeconds(0);
@@ -55,7 +57,7 @@ function PunchRequest() {
       // Extract hours and minutes from end time
       const [endHours, endMinutes] = endTime.split(':').map(val => parseInt(val));
 
-      // Set dateOut with end time
+      // Set dateOut with extracted endHours and endMinutes
       const utcEndDate = new Date(utcStartDate);
       utcEndDate.setUTCHours(endHours);
       utcEndDate.setUTCMinutes(endMinutes);
@@ -65,7 +67,7 @@ function PunchRequest() {
       const requestData = {
         dateIn: utcStartDate.toISOString(), // Convert selected date to UTC format
         dateOut: utcEndDate.toISOString(), // Convert end time date to UTC format
-        employeeId: employeeID,
+        employeeId: employeeID, //aligns with database id variable
       };
 
       const response = await axios.post(`http://${backendServer}/punchCard/post/create`, requestData);
@@ -130,7 +132,7 @@ function getCurrentDateWithTimeRange(startDate, startTime, endTime) {
   ];
   const month = months[startDate.getMonth()];
   let day = startDate.getDate() + 1; // Add 1 to the selected day
-  let nextMonth = false;
+  let nextMonth = false; //making sure whether incremented days exceeds number of days in current month
 
   // Check if adding 1 to the day exceeds the number of days in the month
   if (day > new Date(year, startDate.getMonth() + 1, 0).getDate()) {
@@ -148,7 +150,7 @@ function getCurrentDateWithTimeRange(startDate, startTime, endTime) {
     suffix = "rd";
   }
 
-  // Adjust the month if necessary
+  // Adjust the month if necessary; if day + 1 exceeds number of days in current month
   const displayMonth = nextMonth ? months[startDate.getMonth() + 1] : month;
 
   // Adjust the year if necessary
