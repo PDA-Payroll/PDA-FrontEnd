@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
 import "../Styles/punchHistory.css";
 import axios from "axios";
@@ -9,12 +9,14 @@ import { backendServer } from "../../constants";
 function PunchHistory() {
     const { logout } = useContext(AuthContext);
     const location = useLocation();
-    const firstName = location.state ? location.state.employeeFirstName : ""; // Get first name from location state
+    const firstName = useContext(AuthContext); // Get first name from location state
     const { employeeFirstName } = useContext(AuthContext);
     const [timeWorked, setTimeWorked] = useState(0); // State variable to store time worked
     const { employeeID } = useContext(AuthContext);
     const {startDate} = useContext(AuthContext);
+    const {setDate} = useContext(AuthContext);
     // const {firstName} = useContext(AuthContext);
+    const navigate = useNavigate();
     const {findAllPunchCardsInRange} = useContext(AuthContext)
 
 
@@ -50,15 +52,15 @@ function PunchHistory() {
 
 
 
-    const [lastPunch, setLastPunch] = useState('0');
+    const [lastPunch, setLastPunch] = useState('');
     const getLastPunch = () => {
         axios.get('http://${backendServer}/punchCard/get/start/end/findAllPunchCardsInRange')
             .then(res => {
-                console.log(res.data.content, employeeID)
-                setLastPunch(res.data.content)
+                console.log(res.data.content)
+                setLastPunch(response.data.employeeInfo)
 
             }).catch(err => {
-                conseole.log(err)
+                console.log(err)
             })
     }
 
@@ -66,8 +68,9 @@ function PunchHistory() {
 
 
 
-    console.log('Employee:',employeeFirstName)
-    console.log('Date In:', );
+    console.log('Employee ID:',employeeID)
+    console.log('First Name:', firstName)
+    console.log('Date In:', startDate);
 
     
 
@@ -79,6 +82,7 @@ function PunchHistory() {
             <div className="Home-container2">
                 <div className="bubbled-rectangle2">
                     <p className="text">Last Punch at: 
+                    
                         
                     </p>
                 </div>

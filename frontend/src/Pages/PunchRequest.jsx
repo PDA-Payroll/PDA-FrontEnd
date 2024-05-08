@@ -72,6 +72,7 @@ function PunchRequest() {
 
       setMessage("Punch request submitted successfully!");
       console.log(response.data);
+      navigate("/PunchHistory", { state: { submittedTime: new Date().toISOString() } })
     } catch (error) {
       console.error("An error occurred:", error);
       setMessage("Failed to submit punch request. Please try again.");
