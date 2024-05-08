@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from "../AuthContext";
 import "../Styles/home.css"
 import CurrentDate from '../Styles/CurrentDate.jsx';
@@ -12,11 +12,9 @@ function Home() {
 
 
   
-  const handleClockOut = () => {
-
-    console.log("Clocked-Out at ");
-    setMessage('Clocked-Out at ')
-  }
+  const handlePunchHistory = () =>{
+    navigate("/PunchHistory", { state: { firstName: firstName } });
+  };
 
   const handleLogout = () => {
     logout();
@@ -56,7 +54,7 @@ function Home() {
         </button>
       </Link>
 
-      <Link to="/punchcard-request" className='title-text'>
+      <Link to="/punchcard-request" className='title-text' onClick={handlePunchHistory}>
         <button style={{ color: "black" }} className="button-punchRequest title-text">
           Punch Request
         </button>
