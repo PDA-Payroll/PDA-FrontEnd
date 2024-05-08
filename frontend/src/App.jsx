@@ -7,6 +7,7 @@ import Logout from './Pages/LogOut'
 import { AuthProvider } from './AuthContext'; // Import AuthProvider
 import AdminHome from './Pages/AdminHome';
 import EmployeeModifier from './Pages/EmployeeModifier';
+import CreateEmployee from './Pages/CreateEmployee';
 import './App.css';
 import './Styles/Login.css';
 import './Styles/home.css';
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" exact element={<Login />} /> {/* Use element prop */}
           <Route path ="/punchcard-request" element={<Request/>} /> 
           <Route path ="/logout" element={<Logout/>}/> {/* Corrected route path */}
+          <Route path = "/CreateEmployee" element={<CreateEmployee/>}/>
         </Routes>
       </Router>
     </AuthProvider>
