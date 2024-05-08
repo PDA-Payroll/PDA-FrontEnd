@@ -67,7 +67,7 @@ function PunchHistory() {
 
 
     console.log('Employee:',employeeFirstName)
-    console.log('Date In:', dateIn);
+    console.log('Date In:', );
 
     
 
@@ -78,7 +78,7 @@ function PunchHistory() {
         <div>
             <div className="Home-container2">
                 <div className="bubbled-rectangle2">
-                    <p className="text">Last Punch at: {dateIn}
+                    <p className="text">Last Punch at: 
                         
                     </p>
                 </div>
