@@ -5,19 +5,27 @@ import "../Styles/punchRequest.css";
 import { AuthContext } from '../AuthContext';
 
 function PunchHistory() {
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
-  const [punchHistory, setPunchHistory] = useState([]);
-  const { employeeID } = useContext(AuthContext);
+  const [startDate, setStartDate] = useState(''); //states variable for start date 
+  const [endDate, setEndDate] = useState(''); //states variable for endDate 
+  const [punchHistory, setPunchHistory] = useState([]); //states vbariable for punch history 
+  const { employeeID } = useContext(AuthContext); // Gets employeeID variable from AuthContext 
 
+
+
+  //handler function for start date
+  //triggered when startDate input is requested 
   const handleStartDateChange = (event) => {
     setStartDate(event.target.value);
   };
 
+
+  //handler fucntion for end date 
+  //triggered when endDate input is requested 
   const handleEndDateChange = (event) => {
     setEndDate(event.target.value);
   };
 
+  //function that gets sumbitted punch times 
   const handleSubmit = async () => {
     try {
       console.log("Submit button clicked");
@@ -35,6 +43,8 @@ function PunchHistory() {
     }
   };
 
+
+  //triggers handleSubmit function when startDate and endDate is requested 
   useEffect(() => {
     if (startDate && endDate) {
       handleSubmit();
@@ -45,6 +55,7 @@ function PunchHistory() {
   const latestPunch = punchHistory.length > 0 ? punchHistory[punchHistory.length - 1] : null;
 
   return (
+    //displays punch time
     <div className="punch-container">
       <div className="rectangle-pr">
         <div className="title-punch">
@@ -57,15 +68,17 @@ function PunchHistory() {
           <input type="date" id="end-date" value={endDate} onChange={handleEndDateChange} />
         </div>
         <div className="latest-punch">
+
+          
           {latestPunch ? (
             <div>
               <h2>Latest Punch</h2>
-              <p>Date: {latestPunch.dateIn}</p>
+              <p>Date: {latestPunch.dateIn}</p>  
               <p>Start Time: {latestPunch.dateIn}</p>
               <p>End Time: {latestPunch.dateOut}</p>
             </div>
           ) : (
-            <p>No punch records found for the specified date range.</p>
+            <p>No punch records found for the specified date range.</p> // Displayed if no punch records found 
           )}
         </div>
       </div>
@@ -74,7 +87,3 @@ function PunchHistory() {
 }
 
 export default PunchHistory;
-
-
-
-
