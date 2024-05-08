@@ -32,17 +32,18 @@ export const AuthProvider = ({ children }) => {
         setIsSupervisor(isSupervisor);
         setSId(sId);
         setSsn(ssn);
-=======
-    const [isLoggedIn, setIsLoggedIn] = useState(false); //true if user is logged in, false otherwise
-    const [employeeID, setEmployeeID] = useState(null); // Initialize employeeID as null if no id is recognized from database 
+    }
+
+    // const [isLoggedIn, setIsLoggedIn] = useState(false); //true if user is logged in, false otherwise
+    // const [employeeID, setEmployeeID] = useState(null); // Initialize employeeID as null if no id is recognized from database 
 
     // Function to handle login
     //at login, we are given employee id from employee data
-    const login = (employeeId) => {
-        setIsLoggedIn(true);
-        setEmployeeID(employeeId); //sets id to database given id 
+    // const login = (employeeId) => {
+    //     setIsLoggedIn(true);
+    //     setEmployeeID(employeeId); //sets id to database given id 
 
-    };
+    // };
 
     // Function to handle logout
     const logout = () => {
@@ -65,6 +66,14 @@ export const AuthProvider = ({ children }) => {
     const authContextValue = {
         isLoggedIn,
         employeeID,
+        isAdmin,
+        firstName,
+        lastName,
+        middleName,
+        userName,
+        isSupervisor,
+        ssn,
+        sId,
         login,
         logout,
     };

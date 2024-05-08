@@ -1,4 +1,4 @@
-.mantine-Button-root{
+.mantine-Button-root1{
   background-color: #ebf5ee;
   &:hover{
     background-color: #c9f3d5;
@@ -8,6 +8,6 @@
   font-family: arial, sans-serif;
   font-size: xx-large;
   justify-content: center;
-  width: 310px;
+  width: 350px;
   height: 100px;
 }
