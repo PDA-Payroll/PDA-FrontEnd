@@ -8,6 +8,7 @@ import { AuthProvider } from './AuthContext'; // Import AuthProvider
 import AdminHome from './Pages/AdminHome';
 import EmployeeModifier from './Pages/EmployeeModifier';
 import CreateEmployee from './Pages/CreateEmployee';
+import PunchHistory from './Pages/PunchHistory';
 import './App.css';
 import './Styles/Login.css';
 import './Styles/home.css';
@@ -25,6 +26,7 @@ function App() {
           <Route path ="/punchcard-request" element={<Request/>} /> 
           <Route path ="/logout" element={<Logout/>}/> {/* Corrected route path */}
           <Route path = "/CreateEmployee" element={<CreateEmployee/>}/>
+          <Route path = "/PunchHistory" element={<PunchHistory/>}/>
         </Routes>
       </Router>
     </AuthProvider>

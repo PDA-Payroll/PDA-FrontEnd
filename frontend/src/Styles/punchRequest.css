@@ -16,7 +16,7 @@
   }
   .title-punch .text-punch {
     color: black; 
-    margin-top: -50px;
+    margin-top: -20px;
   }
   
   .current-date-time p {
@@ -35,6 +35,10 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+  }
+  .time-inputs{
+    display: flex;
+    justify-content: space-between; 
   }
   
   .submit-button {
