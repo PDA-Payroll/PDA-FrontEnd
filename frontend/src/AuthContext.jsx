@@ -30,7 +30,9 @@ export const AuthProvider = ({ children }) => {
         setIsSupervisor(isSupervisor);
         setSId(sId);
         setSsn(ssn);
+
     };
+
 
     // Function to handle logout
     const logout = () => {
@@ -50,6 +52,14 @@ export const AuthProvider = ({ children }) => {
     const authContextValue = {
         isLoggedIn,
         employeeID,
+        isAdmin,
+        firstName,
+        lastName,
+        middleName,
+        userName,
+        isSupervisor,
+        ssn,
+        sId,
         login,
         logout,
     };

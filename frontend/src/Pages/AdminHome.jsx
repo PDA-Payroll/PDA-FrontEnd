@@ -56,8 +56,8 @@ function AdminHome() {
       <div>
         <MantineProvider>
           <Group gap="xl">
-            <Button  component={Link} to="/EmployeeModifier" variant="filled"  style={{ color: "black" }} >Employee Accounts</Button>
-            <Button component={Link} to="/punchcard-request" variant="filled" style={{color:"black"}}> Punch Request </Button> 
+            <Button className='mantine-Button-root1' component={Link} to="/EmployeeModifier" variant="filled"  style={{ color: "black" }} >Employee Accounts</Button>
+            <Button className='mantine-Button-root1' component={Link} to="/punchcard-request" variant="filled" style={{color:"black"}}> Punch Request </Button> 
           </Group>
         </MantineProvider>
       </div>

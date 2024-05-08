@@ -56,14 +56,14 @@ function Login() {
           login(employeeID, firstName, lastName, middleName, userName, isAdmin, isSupervisor, sId, ssn);
           // Navigate to the dashboard route and pass the first name as state
           if (response.data.employeeInfo.isAdmin == true || response.data.employeeInfo.isSupervisor == true) {
-            navigate("/adminHome", { state: {firstName: firstName} });/*  firstname: response.data.employeeInfo.employeeFirstName, lastName: response.data.employeeInfo.employeeLastName, middleName: response.data.employeeInfo.employeeMiddleName, userName: response.data.employeeInfo.employeeUserName, id:response.data.employeeInfo.id*/
+            navigate("/AdminHome", { state: {firstName: firstName} });/*  firstname: response.data.employeeInfo.employeeFirstName, lastName: response.data.employeeInfo.employeeLastName, middleName: response.data.employeeInfo.employeeMiddleName, userName: response.data.employeeInfo.employeeUserName, id:response.data.employeeInfo.id*/
           }
           else {
             navigate("/dashboard", { state: {} });
           }
           
           // Navigate to the dashboard route and pass the first name as state; home page displays first name 
-          navigate("/dashboard", { state: { firstName: firstName } }); 
+
 
         } else {
           throw new Error("Incorrect Username or Password");

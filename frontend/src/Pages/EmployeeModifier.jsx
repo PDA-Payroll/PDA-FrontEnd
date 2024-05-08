@@ -1,53 +1,45 @@
-import '@mantine/core/styles/Modal.css';
+import '@mantine/core/styles.layer.css'
 import axios from 'axios';
-import React from 'react';
+import React, { useContext } from 'react';
 import '../Styles/EmployeeModifier.css'
-import {MantineProvider,Modal, Button, TextInput} from "@mantine/core"
-import AdminHome from './AdminHome';
-import { useDisclosure } from '@mantine/hooks';
+import { MantineProvider, Button, TextInput, Input, Fieldset, Space, Switch, Group, PasswordInput, SimpleGrid } from "@mantine/core"
 import { useState } from 'react';
+import { AuthContext } from '../AuthContext';
+import { backendServer } from '../../constants';
+import { Link } from 'react-router-dom';
 
-export default function employeeModifier(){
-    const [firstName, setFirstName] = useState('');
-    const [middleName, setMiddleName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [userName, setUserName] = useState('');
-    const [password, setPassword] = useState('');
-    const [isAdmin, setIsAdmin] = useState(false);
-    const [isSupervisor, setIsSupervisor] = useState(false);
-    const [ssn, setSsn] = useState('');
-    const [sId, setSId] = useState('');
-    const createEmployee = () => {
-        axios
-        .post('http://${backendServer}/employee/post/create',{
-            employeeFirstName: firstName,
-            employeeMiddleName: middleName, 
-            employeeLastName: lastName,
-            employeeUserName: userName,
-            employeePassword: password,
-            isAdmin: isAdmin,
-            isSupervisor: isSupervisor,
-            socialSecurityNumber: ssn,
-            supervisorId: sId,
+
+function getEmployee() {
+    const { employeeID } = useContext(AuthContext);
+    axios
+        .get(`http://${backendServer}/employee/get/supervisor/${1}`)
+        .then((response) => {
+            console.log(response.status);
+            console.log(response.data);
+            response.status == 200 ? setMessage("Success!") : "Error";
         })
-        .then((response)=>{
-            console.log(response);
-        })
-        .catch((error)=>{
+        .catch((error) => {
             console.log(error);
+        })
+        .finally(() => {
         });
-    };
-    const [opened, {open, close}] = useDisclosure(false);
-    return(
+};
+
+export default function employeeModifier() {
+    const { isAdmin } = useContext(AuthContext);
+
+    const [message, setMessage] = useState('');
+    const logID = () => { console.log(employeeID) }
+    const outputEmp = () => { console.log(`Employee: ${firstName} ${middleName} ${lastName}`) }
+    return (
         <MantineProvider>
-            <Modal opened={opened} onClose={close} title="Create Employee Account" centered>
-           <TextInput
-           
-           ></TextInput> 
-            </Modal>
-            <Button style={{color: "black"}}onClick={open}>
-               Create Employee 
-            </Button>
+            <Link to="/CreateEmployee">
+                <Button className='mantine-Button-root1'
+                    style={{ color: "black" }}>
+                    Create Employee
+                </Button>
+            </Link>
+            <Button style={{ color: 'black' }} className='mantine-Button-root1' onClick={getEmployee()}>Get by pk</Button>
         </MantineProvider>
     );
 }
