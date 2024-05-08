@@ -4,25 +4,8 @@
 
 
 .buttonLogout{
-  background-color: #EBF5EE; 
-  width: 145px;  
-  height: 110px; 
-  border-radius: 25px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  padding-left: 25px; 
-  padding-right: 25px;
-}
-
-
-.buttonHomepage{
     background-color: #EBF5EE; 
-    width: 150px;  
+    width: 145px;  
     height: 110px; 
     border-radius: 25px;
     display: flex;
@@ -31,61 +14,76 @@
     justify-content: center;
     position: absolute;
     bottom: 10px;
-    right: 230px;
-    padding-left: 25px; 
-    padding-right: 25px;
-}
-
-
-
-.bubbled-rectangle {
-    background-color: #a6a8a7; 
-    width: 200px;  
-    height: 150px; 
-    border-radius: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    position: center;
-    top: 20px;
-    left: 0px;
-    margin: 50px;
+    right: 10px;
     padding-left: 25px; 
     padding-right: 25px;
   }
-
-
-
-.text{
-    background-color: #a6a8a7;
-    color: black;
-    font-size: 20px;
-    height: 80vh;
-}
-
-
-
-.timeDisplay{
-    background-color: #EBF5EE;
-    color: black;
-    font-size: 20px;
-    height: 0vh;
-}
-
-.Home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 80vh;  /* Updated height to cover the entire viewport height */
   
+  
+  .buttonHomepage{
+      background-color: #EBF5EE; 
+      width: 150px;  
+      height: 110px; 
+      border-radius: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      bottom: 10px;
+      right: 230px;
+      padding-left: 25px; 
+      padding-right: 25px;
   }
-
-
-.titleText:hover {
-    background-color: #c9f3d5; /* Change to the desired hover background color */ /* Change to the desired hover text color */
+  
+  
+  
+  .bubbled-rectangle2 {
+      background-color: #a6a8a7; 
+      width: 200px;  
+      height: 150px; 
+      border-radius: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      position: center;
+      top: 20px;
+      left: 0px;
+      margin: 50px;
+      padding-left: 25px; 
+      padding-right: 25px;
+    }
+  
+  
+  
+  .text{
+      background-color: #a6a8a7;
+      color: black;
+      font-size: 20px;
+      height: 80vh;
   }
-
-
+  
+  
+  
+  .timeDisplay{
+      background-color: #EBF5EE;
+      color: black;
+      font-size: 20px;
+      height: 0vh;
+  }
+  
+  .Home-container2 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 80vh;  /* Updated height to cover the entire viewport height */
+    
+    }
+  
+  
+  .titleText:hover {
+      background-color: #c9f3d5; /* Change to the desired hover background color */ /* Change to the desired hover text color */
+    }
