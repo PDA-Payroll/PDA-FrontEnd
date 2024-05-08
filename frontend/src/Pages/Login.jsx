@@ -61,9 +61,6 @@ function Login() {
           else {
             navigate("/dashboard", { state: {} });
           }
-
-          const firstName = response.data.employeeInfo.employeeFirstName; //first name is employee first name from response employee data
-          console.log("First Name:", firstName); //returns employee first name in console log
           
           // Navigate to the dashboard route and pass the first name as state; home page displays first name 
           navigate("/dashboard", { state: { firstName: firstName } }); 

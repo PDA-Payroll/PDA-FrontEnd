@@ -11,8 +11,10 @@
 		"start": "node server.js"
 	},
 	"dependencies": {
+		"@mantine/core": "^7.9.0",
 		"@mantine/dates": "^7.9.0",
 		"@mantine/hooks": "^7.9.0",
+		"@mantine/styles": "^6.0.21",
 		"autoprefixer": "^10.4.19",
 		"axios": "^1.6.8",
 		"axios-debug-log": "^1.0.0",
